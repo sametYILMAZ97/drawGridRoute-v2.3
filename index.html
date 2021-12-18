@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>drawGridRoute</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta name="description" content="A fun intuitive pixel art maker. Draw something!">
+	<meta name="keywords" content="Syk Houdeib, syknapse, syk, houdeib, art, draw, pixel, fun, frontend, front-end, front end, developer, web developer, web development, javascript">
+	<meta name="author" content="Syk Houdeib">
+
+    <link href="https://fonts.googleapis.com/css?family=Joti+One|Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script> -->
+</head>
+<body>
+    <h1></h1>
+
+    <div class="controls">
+        <button type="button" id="reset">Reset</button><button type="button" id="send">Send Coordinates</button>
+        <label class="builder"><div>Row</div>
+            <button type="button" id="remove-row" value="5" disabled>-</button>
+            <button type="button" id="add-row" value="5" disabled>+</button>
+            <input type="number" id="input-rows" name="height" min="1" max="150" value="5" disabled>
+        </label>
+            <p></p>
+        <label class="builder"><div>Column</div>
+            <button type="button" id="remove-column" value="5" disabled>-</button>
+            <button type="button" id="add-column" value="5" disabled>+</button>
+            <input type="number" id="input-columns" name="width" min="1" max="150" value="5" disabled>
+        </label>
+
+        <div class="builder">
+            <button type="button" id="clear-grid">Clear Grid</button>
+            <button type="button" id="create-grid">Create Grid</button>
+        </div>
+
+        <input type="color" id="color-picker" disabled>
+        <p id="cleanpos"></p>
+    </div>
+
+    <table id="pixel-canvas"></table>
+
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script> -->
+    <!-- Burada socket.io.js dosyasını sunucudan çekmeye çalışıyorıum. -->
+    <script src="http://192.168.137.18:5000/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io.connect("http://192.168.137.18:5000", { transports : ['websocket'] });        
+    </script>
+    <script src="designs.js"></script>  
+</body>
+</html>
